@@ -12,7 +12,7 @@ CLOBBER.include(['*.log', '*.bbl', '*.run.xml', '*.synctex.gz', '*.synctex',
 rule ".pdf" => ".tex" do |t|
   # add the folders fig and style with all there sub-folders (recursively) to
   # TEXINPUTS so TeX can find the styles and figures ...
-  ENV['TEXINPUTS'] = './fig//' + File::PATH_SEPARATOR + './style//' + File::PATH_SEPARATOR + './code//' + File::PATH_SEPARATOR
+  ENV['TEXINPUTS'] = './fig//' + File::PATH_SEPARATOR + './style//' + File::PATH_SEPARATOR
   # call latexmk
   sh "latexmk -pdf -pdflatex=\"pdflatex -synctex=1\" #{t.source}"
   # parse log
