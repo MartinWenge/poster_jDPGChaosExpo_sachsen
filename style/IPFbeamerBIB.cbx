@@ -1,0 +1,22 @@
+% -*- latex -*-
+\ProvidesFile{IPFbeamerBIB.cbx}
+
+\newbibmacro*{cite:full}{%
+  \printtext[bibhypertarget]{%
+    \usedriver%
+    {\DeclareNameAlias{sortname}{default}}%
+    {\thefield{entrytype}}}%
+  \usebibmacro{shorthandintro}%
+}
+
+
+\DeclareCiteCommand{\cite}[\mkbibfootnote]
+{\usebibmacro{prenote}}
+{\usebibmacro{citeindex}%
+  \usebibmacro{cite:full}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareMultiCiteCommand{\cites}[\mkbibfootnote]{\cite}{\multicitedelim}
+
+\endinput

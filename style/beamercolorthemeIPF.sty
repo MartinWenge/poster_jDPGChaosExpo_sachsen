@@ -1,0 +1,39 @@
+\ProvidesPackage{beamercolorthemeIPF}[2010/10/28 v0.01-beta2]
+
+\mode<presentation>
+
+\definecolor{IPFdarkblue}{RGB}{0,51,102}
+\definecolor{IPFgrayblue}{rgb}{0.75390625,0.765625,0.83203125}
+\definecolor{IPFred}{RGB}{255,51,0}
+\definecolor{IPForange}{RGB}{255,153,0}
+\definecolor{IPFbrown}{RGB}{204,152,0}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{IPFtblh}{RGB}{186,196,206}
+\definecolor{IPFtbl1}{RGB}{206,216,226}
+\definecolor{IPFtbl2}{RGB}{226,236,246}
+\definecolor{IPFBoxBG}{RGB}{249,249,249}
+
+\setbeamercolor{headline}{fg=IPFdarkblue,bg=IPFgrayblue}
+\setbeamercolor{separation line}{bg=IPFdarkblue}
+
+
+\setbeamercolor{alerted text}{fg=IPFred}
+\setbeamercolor*{palette primary}{fg=IPFdarkblue,bg=IPFgrayblue}
+\setbeamercolor*{palette secondary}{fg=white,bg=IPFdarkblue}
+\setbeamercolor{palette tertiary}{fg=IPFdarkblue,bg=IPFgrayblue}
+\setbeamercolor*{palette quaternary}{bg=white,fg=IPFdarkblue}
+
+\setbeamercolor{frametitle}{fg=IPFdarkblue,bg=IPFgrayblue}
+\setbeamercolor{title}{fg=IPFdarkblue}
+\setbeamercolor{structure}{fg=IPFdarkblue,bg=white}
+\setbeamercolor{normal text}{fg=IPFdarkblue,bg=white}
+
+\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=IPFgrayblue}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg!95!gray}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=white}%block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+\endinput

@@ -1,0 +1,177 @@
+\documentclass[final]{beamer}
+%\usepackage{mathabx}
+\usepackage{arev}
+
+\usepackage{amsmath,amsthm,amssymb,latexsym,bbding}
+\everymath{\displaystyle}
+\usepackage{mathtools}
+% \boldmath
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[orientation=portrait,size=a0,scale=0.93,debug]{beamerposter}
+\mode<presentation>
+  {
+  \usetheme{IPFposter}
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% definitions for this poster only
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% biblatex
+
+\usepackage[backend=biber,citestyle=numeric-comp,bibstyle=BIBStyle,%
+            sorting=none,doi=false,hyperref=false]{biblatex}
+\bibliography{thebib}
+\setbeamertemplate{bibliography item}[text]  % set bibliography item, to show 
+                                             % the text of the item (as it 
+                                             % comes from biblatex);
+                                             % otherwise we get these little 
+                                             % images
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% length and layout stuff
+
+\newlength{\columnheight}
+\setlength{\columnheight}{97cm}
+
+\setlength\textwidth{\paperwidth}
+
+\newlength{\marginw}
+\setlength{\marginw}{4cm}
+
+\newlength{\tw}
+\setlength{\tw}{\textwidth}
+\addtolength{\tw}{-2\marginw}
+
+
+\newlength{\colsep}
+\setlength{\colsep}{2cm}
+
+\newlength{\colw}
+\setlength{\colw}{0.5\tw}
+\addtolength{\colw}{-\colsep}
+
+
+\setlength{\parindent}{0pt}
+
+\setbeamersize{text margin left=0pt,%
+text margin right=0pt,%
+%sidebar width left=0pt,%
+%sidebar width right=0pt,%
+%description width=0pt,%
+%description width of=0pt,%
+%mini frame size=0pt,%
+%mini frame offset=0pt%
+}
+
+\newenvironment{myTwoColPoster}{%
+  \begin{minipage}[t]{\textwidth}%
+    \hspace*{\marginw}%
+    \hspace*{9.5bp}%  %% dirty trick!!!!
+    %\hfill%
+    \begin{minipage}[t]{\tw}}%
+  {\end{minipage}%
+   \hspace*{\marginw}%
+   %\hfill%
+   \end{minipage}}
+
+\newenvironment{myCol}%
+    {\begin{minipage}[t][\columnheight][t]{\colw}}%
+    {\end{minipage}}
+
+\newenvironment{textblock}[1]%
+    {\begin{block}{\rule[-0.6ex]{0pt}{2.4ex}\raisebox{-0.25ex}[1.6ex]{#1}}%
+     \vspace*{5mm}}%
+    {\vspace*{5mm}\end{block}}
+
+
+%%%------------------------------------------------------------------------%%%
+%% the document
+%%--------------------------------------------------------------------------%%
+
+%% logos
+\logoleft{\includegraphics[keepaspectratio=true,width=9cm]{fig/logos/dd1_1.pdf}}
+\logoright{\includegraphics[keepaspectratio=true,width=9cm]{fig/logos/dd1_2.pdf}}
+
+%% title
+  \title[Fancy Posters]{{\huge My Poster}}
+  \author[]{\Large fst author\inst{1} \and 2nd author\inst{1}
+    \and 3rd author\inst{2}} \institute[IPFdd UBS]{ \inst{1}Leibniz-Institut f\"ur
+    Polymerforschung Dresden e. V., Hohe Stra\ss e
+    6, 01069 Dresden, Germany\\
+    \inst{2}other\\
+    ~\vspace{1ex} } \date{}
+
+%% set text in footline
+\footlinetext{\texttt{http://www.ipfdd.de}\hfill\texttt{someone@ipfdd.de}}
+
+
+%%--------------------------------------------------------------------------%%
+%% content
+\begin{document}
+\begin{frame}[t]{}
+\begin{myTwoColPoster}
+% ---------------------------------------------------------%
+% first column
+\begin{myCol}
+  \begin{textblock}{Introduction}
+    Some text
+
+  \end{textblock}
+
+  \begin{textblock}{Part 1}
+    \begin{itemize}
+      \item text
+      \item text
+    \end{itemize}
+  \end{textblock}
+
+  \begin{textblock}{Part 3}
+    text
+  \end{textblock}
+
+\end{myCol}
+% ---------------------------------------------------------%
+% end the column
+% \hspace*{\colsep}%
+\hfill
+% ---------------------------------------------------------%
+% second column
+\begin{myCol}
+  \begin{textblock}{Part 4}
+    Text \cite{Einstein1906}
+  \end{textblock}
+
+
+  \begin{textblock}{Conclusions}
+     \begin{itemize}
+       \item 1
+       \item 2
+       \item 3
+     \end{itemize}
+   \end{textblock}
+
+
+  \begin{textblock}{Literature}
+    \printbibliography
+  \end{textblock}
+
+
+\end{myCol}%
+\end{myTwoColPoster}
+\end{frame}
+\end{document}
+
+
+%%% Local Variables:
+%%% compile-command: "rake makepdf"
+%%% End:

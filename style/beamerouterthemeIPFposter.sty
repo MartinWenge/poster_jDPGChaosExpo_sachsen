@@ -1,0 +1,65 @@
+\ProvidesPackage{beamerouterthemeIPFposter}[2011/03/10 v0.01-beta2]
+
+\mode<presentation>
+
+\setbeamertemplate{headline}{  
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{.02\paperwidth}
+      \end{column}
+      \begin{column}{.02\paperwidth}
+        \begin{center}
+          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
+        \end{center}
+        \vskip1ex
+      \end{column}
+      \begin{column}{.683\paperwidth}
+        \vskip4ex
+        \raggedleft
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}     
+      \end{column}
+      \begin{column}{.3\paperwidth}
+        \vskip1cm
+        \begin{center}
+          \raggedbottom
+          \includegraphics[width=.85\linewidth]{fig/logos/IPF-Logo}
+          \vskip2ex
+          \includegraphics[height=3.5cm,keepaspectratio]{fig/logos/DC-Logo2}
+          \hskip3ex
+          \includegraphics[height=3.3cm,keepaspectratio]{fig/logos/Leibniz-Logo}
+        \end{center}
+        \vskip1.5cm
+      \end{column}
+    \end{columns}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{4pt}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+  
+  \leavevmode%
+  \begin{beamercolorbox}[ht=4ex,leftskip=1em,rightskip=1em]{author in head/foot}%
+    \texttt{http://www.ipfdd.de - http://www.univ-ubs.fr/}
+    \hfill
+    \texttt{jan.domurath@gmail.com}
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+}
+
+\mode<all>
+
+\endinput

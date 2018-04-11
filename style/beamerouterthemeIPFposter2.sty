@@ -1,0 +1,82 @@
+\ProvidesPackage{beamerouterthemeIPFposter2}[2011/03/10 v0.01-beta2]
+
+\def\@ipf@footline{}
+\newcommand{\footlinetext}[1]{\gdef\@ipf@footline{#1}}
+
+\def\@ipf@logoleft{}
+\newcommand{\logoleft}[1]{\gdef\@ipf@logoleft{#1}}
+
+\def\@ipf@logoright{}
+\newcommand{\logoright}[1]{\gdef\@ipf@logoright{#1}}
+
+\newcommand{\ipfuselogo}[2][1ex]{%
+    \ipfvcenteredimage{\pgfuseimage{#2}}\hspace*{#1}}
+
+\mode<presentation>
+
+%% http://tex.stackexchange.com/questions/433/vertically-center-text-and-image-in-one-line
+\newcommand{\vcenteredimage}[1]{\begingroup
+\setbox0=\hbox{#1}%
+\parbox{\wd0}{\box0}\endgroup}
+
+\newlength{\hheight}
+\setlength{\hheight}{4cm}  %% WTF: why is this 4cm but I get 8cm height??????
+
+\setbeamertemplate{headline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \vspace*{2cm}%\rule{0pt}{4pt}
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{minipage}[t][\hheight][b]{\paperwidth}
+      \begin{minipage}[t][\hheight][b]{4cm}
+        \hfill
+      \end{minipage}
+      \begin{minipage}[t][\hheight][t]{9cm}
+        \begin{center}
+          \vcenteredimage{\@ipf@logoleft}
+        \end{center}
+      \end{minipage}
+      \hfil
+      \begin{minipage}[t][\hheight][b]{57cm}
+        \begin{center}
+          \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+          \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+          \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
+        \end{center}
+      \end{minipage}
+      \hfil
+      \begin{minipage}[t][\hheight][t]{9cm}
+        \begin{center}
+          \vcenteredimage{\@ipf@logoright}
+        \end{center}
+      \end{minipage}
+      \begin{minipage}[t][\hheight][b]{4cm}
+        \hfill
+      \end{minipage}
+    \end{minipage}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{4pt}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=5.5ex,leftskip=4cm,rightskip=4cm]{}%
+    \footnotesize
+    \@ipf@footline
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[ht=2cm,wd=\paperwidth]{}
+  \end{beamercolorbox}
+}
+
+\mode<all>
+
+\endinput

@@ -1,0 +1,124 @@
+\ProvidesFile{BIBStyle.bbx}
+
+\newtoggle{bbx:doi}
+
+\DeclareBibliographyOption{doi}[true]{\settoggle{bbx:doi}{#1}}
+%
+\ExecuteBibliographyOptions{doi}
+
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+%
+\defbibenvironment{bibliography}
+  {\list{\printtext[labelnumberwidth]{\printfield{labelnumber}}}
+        {\setlength\labelwidth{\labelnumberwidth}%
+         \setlength\leftmargin{\labelwidth}\setlength\labelsep{\biblabelsep}%
+         \addtolength\leftmargin{\labelsep}\setlength\itemsep{\bibitemsep}%
+         \setlength\parsep{\bibparsep}}%
+    \renewcommand*\makelabel[1]{\hss##1}}
+  {\endlist}{\item}
+%
+\newbibmacro*{finentry}{\finentry}
+
+%\DeclareNameFormat{labelname}{%
+%    \ifuseprefix
+%        {\usebibmacro{name:last-first}{#1}{#4}{#5}{#8}}
+%        {\usebibmacro{name:last-first}{#1}{#4}{#6}{#8}}
+%    \usebibmacro{name:andothers}}
+
+%\DeclareNameFormat{default}{% Vollzitate
+%  \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+%  \usebibmacro{name:andothers}}
+  
+ \DeclareNameFormat{default}{%
+   %\@ifpackagelater{biblatex}{2016/03/01} % doesn't work
+  % {%
+     \usebibmacro{name:family-given}
+                       {\namepartfamily}
+                       {\namepartgiveni}
+                       {\namepartprefix}
+                       {\namepartsuffix}
+  % }%
+  % {%
+     %% display names as:
+     %% - last name {#1}
+     %% - first name (initials) {#4}
+     %% - name prefixes (von, van ...; as initials) {#5}
+     %% - name affixes (junior, senior ...; as initials) {#8}
+     %\usebibmacro{name:last-first}{#1}{#4}{#6}{#8}
+  % }%
+   \usebibmacro{name:andothers}}
+
+
+\DeclareBibliographyDriver{article}{%
+ %   \usebibmacro{bibindex}
+  %  \usebibmacro{author/translator+others}\setunit{\labelnamepunct}\newblock
+    \printnames{author}%
+    %\newblock
+    %\printfield{title}%
+    \newblock
+    \printfield{journaltitle}%
+    \newblock
+    \printfield{volume}%
+    \newblock
+    \printfield{number}%
+    \newblock
+    \printfield{pages}%
+    \newblock
+    \printfield{year}%
+    \usebibmacro{doi}
+    \finentry
+    }
+
+\DeclareBibliographyDriver{incollection}{%
+    \printnames{author}%
+    \newblock
+    \printfield{title}%
+    \newblock
+    \printfield{booktitle}%
+    \newblock
+    \printfield{series}%
+    \newblock
+    \printfield{volume}%
+    \newblock
+   % \printfield{number}%
+   % \newblock
+    \printfield{pages}%
+    \newblock
+    \printfield{year}%
+    \usebibmacro{doi}
+    \finentry
+    }
+
+\DeclareBibliographyDriver{book}{%
+    \printnames{author}%
+    \newblock
+    \printfield{title}%
+    \newblock
+    \printlist{publisher}%
+    \newblock
+    \printlist{location}%
+    \newblock
+    \printfield{year}%
+    \finentry
+    }
+
+\DeclareFieldFormat[article]{autor}{#1}
+\DeclareFieldFormat[article]{title}{:\addspace{#1}}
+\DeclareFieldFormat[book]{title}{:\addspace{#1}}
+\DeclareFieldFormat[incollection]{title}{:\addspace{#1}}
+\DeclareFieldFormat{year}{\addspace(#1)}
+\DeclareFieldFormat{journaltitle}{,\addspace #1}
+\DeclareFieldFormat{series}{,\addspace #1}
+\DeclareFieldFormat[article]{volume}{,\addspace\textbf{#1}}
+\DeclareFieldFormat[article]{number}{(\textbf{#1})}
+\DeclareFieldFormat[incollection]{volume}{\addspace\textbf{#1}}
+\DeclareListFormat[book]{location}{, \addspace #1}
+\DeclareListFormat[book]{publisher}{, \addspace #1}
+\DeclareFieldFormat{pages}{,\addspace #1}
+\DeclareFieldFormat{doi}{,\addspace DOI:\addspace #1}
+\DeclareFieldFormat{booktitle}{,\addspace in #1}
+
+\newbibmacro*{doi}{%
+ \iftoggle{bbx:doi}{\printfield{doi}}{}}
+
+\endinput

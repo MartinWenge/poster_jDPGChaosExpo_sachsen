@@ -1,0 +1,16 @@
+auto/
+*~
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.nav
+*.snm
+*.synctex.gz
+poster.pdf

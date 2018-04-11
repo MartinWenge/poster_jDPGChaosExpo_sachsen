@@ -1,0 +1,32 @@
+\ProvidesPackage{beamerinnerthemeIPF}[2010/10/28 v0.01-beta2]
+
+\mode<presentation>
+%\useinnertheme{default}
+%\setbeamertemplate{items}[square]
+
+%%% not working
+% \defbeamertemplate{itemize item}{mysquare}{\raise1.4pt\hbox{\vrule width 1.1ex height 1.1ex}}
+% \defbeamertemplate{itemize subitem}{mysquare}{\raise1.4pt\small\hbox{\vrule width 1ex height 1ex}}
+% \defbeamertemplate{itemize subsubitem}{mysquare}{\raise1.4pt\small\hbox{\vrule width 1ex height 1ex}}
+
+% \setbeamertemplate{itemize item}[mysquare]
+% \setbeamertemplate{itemize subitem}[mysquare]
+% \setbeamertemplate{itemize subsubitem}[mysquare]
+
+
+%%% second try
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{pifont}
+\defbeamertemplate{itemize item}{mysquare2}{\scriptsize\raise4.5pt\hbox{\ding{110}}}
+\defbeamertemplate{itemize subitem}{mysquare2}{\scriptsize\raise4.5pt\hbox{$\hm\square$}}
+\defbeamertemplate{itemize subsubitem}{mysquare2}{\scriptsize\raise4.5pt\hbox{$\hm\square$}}
+
+\setbeamertemplate{itemize item}[mysquare2]
+\setbeamertemplate{itemize subitem}[mysquare2]
+\setbeamertemplate{itemize subsubitem}[mysquare2]
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\endinput

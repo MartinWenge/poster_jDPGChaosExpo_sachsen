@@ -1,0 +1,71 @@
+% -*- latex -*-
+\ProvidesFile{IPFbeamerBIB.bbx}
+
+\DeclareNameFormat{default}{%
+  %\@ifpackagelater{biblatex}{2016/03/01} % doesn't work
+ % {%
+    \usebibmacro{name:family-given}
+                      {\namepartfamily}
+                      {\namepartgiveni}
+                      {\namepartprefix}
+                      {\namepartsuffix}
+ % }%
+ % {%
+    %% display names as:
+    %% - last name {#1}
+    %% - first name (initials) {#4}
+    %% - name prefixes (von, van ...; as initials) {#5}
+    %% - name affixes (junior, senior ...; as initials) {#8}
+    %\usebibmacro{name:last-first}{#1}{#4}{#6}{#8}
+ % }%
+  \usebibmacro{name:andothers}}
+
+\DeclareBibliographyDriver{article}{%
+    \printnames{author}%
+    \newblock
+    \printfield{journaltitle}%
+    \newblock
+    \printfield{volume}%
+    \newblock
+    \printfield{number}%
+    \newblock
+    \printfield{pages}%
+    \newblock
+    \printfield{year}%
+    \finentry
+    }
+
+\DeclareBibliographyDriver{incollection}{%
+    \printnames{author}%
+    \newblock
+    \printfield{series}%
+    \newblock
+    \printfield{volume}%
+    \newblock
+   % \printfield{number}%
+   % \newblock
+    \printfield{pages}%
+    \newblock
+    \printfield{year}%
+    \finentry
+    }
+
+\DeclareBibliographyDriver{book}{%
+    \printnames{author}%
+    \newblock
+    \printfield{title}%
+    \newblock
+    \printfield{year}%
+    \finentry
+    }
+
+\DeclareFieldFormat{autor}{\texttt{#1}}
+\DeclareFieldFormat{title}{;\addspace\texttt{#1}}
+\DeclareFieldFormat{year}{\addspace(\texttt{#1})}
+\DeclareFieldFormat{journaltitle}{;\addspace\texttt{#1}}
+\DeclareFieldFormat{series}{;\addspace\texttt{#1}}
+\DeclareFieldFormat[article]{volume}{\addspace\texttt{#1}}
+\DeclareFieldFormat[article]{number}{(\texttt{#1})}
+\DeclareFieldFormat[incollection]{volume}{\addspace\texttt{#1}}
+\DeclareFieldFormat{pages}{:#1}
+\endinput
