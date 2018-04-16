@@ -22,40 +22,54 @@
 \newlength{\hheight}
 \setlength{\hheight}{4cm}  %% WTF: why is this 4cm but I get 8cm height??????
 
+%% width of margin next to logos
+\newlength{\@ipf@hmarging}
+\setlength{\@ipf@hmarging}{4cm}
+
+%% width of the logo area
+\newlength{\@ipf@hlogowidth}
+\setlength{\@ipf@hlogowidth}{9cm}
+
+%% width of the title text area
+\newlength{\@ipf@htitlewidth}
+\setlength{\@ipf@htitlewidth}{\paperwidth}
+\addtolength{\@ipf@htitlewidth}{-2\@ipf@hmarging}
+\addtolength{\@ipf@htitlewidth}{-2\@ipf@hlogowidth}
+
 \setbeamertemplate{headline}{
   \leavevmode
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \vspace*{2cm}%\rule{0pt}{4pt}
-  \end{beamercolorbox}
+  \end{beamercolorbox}%
   \vskip0pt%
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \begin{minipage}[t][\hheight][b]{\paperwidth}
-      \begin{minipage}[t][\hheight][b]{4cm}
+      \begin{minipage}[t][\hheight][b]{\@ipf@hmarging}
         \hfill
-      \end{minipage}
-      \begin{minipage}[t][\hheight][t]{9cm}
+      \end{minipage}%
+      \begin{minipage}[t][\hheight][t]{\@ipf@hlogowidth}
         \begin{center}
           \vcenteredimage{\@ipf@logoleft}
-        \end{center}
-      \end{minipage}
+        \end{center}%
+      \end{minipage}%
       \hfil
-      \begin{minipage}[t][\hheight][b]{57cm}
+      \begin{minipage}[t][\hheight][b]{\@ipf@htitlewidth}
         \begin{center}
           \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
           \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
           \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
-        \end{center}
-      \end{minipage}
+        \end{center}%
+      \end{minipage}%
       \hfil
-      \begin{minipage}[t][\hheight][t]{9cm}
+      \begin{minipage}[t][\hheight][t]{\@ipf@hlogowidth}
         \begin{center}
           \vcenteredimage{\@ipf@logoright}
-        \end{center}
-      \end{minipage}
-      \begin{minipage}[t][\hheight][b]{4cm}
+        \end{center}%
+      \end{minipage}%
+      \begin{minipage}[t][\hheight][b]{\@ipf@hmarging}
         \hfill
-      \end{minipage}
-    \end{minipage}
+      \end{minipage}%
+    \end{minipage}%
   \end{beamercolorbox}
   \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
     \rule{0pt}{4pt}
