@@ -14,3 +14,4 @@ auto/
 *.snm
 *.synctex.gz
 poster.pdf
+.ipynb_checkpoints/

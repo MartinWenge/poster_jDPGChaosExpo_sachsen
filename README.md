@@ -1,4 +1,16 @@
-# IPFbeamerposter
+# Poster jDPG ChaosExpo: Length of the border of Saxony
+
+## Contribution
+
+The poster is in German language. If you find spelling mistake or have better sketches your contribution os welcome.
+
+## Setup 
+
+This poster uses the style sheets of the [IPF-template](https://bitbucket.org/binaerzeicheneimer/ipfbeamerposter).
+To get a fresh template version use
+```
+git pull TemplateIPF
+```
 
 ## Build
 
